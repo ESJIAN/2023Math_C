@@ -4,8 +4,8 @@ import pandas as pd  #
 这个程序是遍历商品信息表检索的一大类的商品单号
 """
 
-def liushui_process(filter_dataframe, pifa_xlsx_sheet1, liushui_sheet_dataframe):
-    Storage_Path = r'./DataOutput/Liushui/' + '花叶类' + '_' + '子类流水表.xlsx'
+def liushui_process(filter_dataframe, pifa_xlsx_sheet1, liushui_sheet_dataframe, leibie):
+    Storage_Path = r'./DataOutput/Liushui/' + leibie + '_' + '子类流水表.xlsx'
 
     #print(filter_dataframe['单品编码'])        # CHK：查看单品编码
     colum_filter_code = filter_dataframe['单品编码']  # 存储这列单品编码的Series对象

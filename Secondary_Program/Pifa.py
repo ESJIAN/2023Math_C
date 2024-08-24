@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-def pifa_process(filter_dataframe,pifa_xlsx_sheet1):
-    Storage_Path=r'./DataOutput/Pifa/'+'花叶类'+'_'+'子类批发表.xlsx'
+def pifa_process(filter_dataframe,pifa_xlsx_sheet1,leibie):
+    Storage_Path=r'./DataOutput/Pifa/'+leibie+'_'+'子类批发表.xlsx'
     #print(filter_dataframe['单品编码'])        # CHK：查看单品编码
     colum_filter_code = filter_dataframe['单品编码'] # 存储这列单品编码的Series对象
     colum_filter_name = filter_dataframe['单品名称'] # 存储这列单品名称的Series对象

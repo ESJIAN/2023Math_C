@@ -2,7 +2,6 @@
 Python3.10
 '''
 import multiprocessing
-
 import pandas as pd #
 from Secondary_Program.Pifa import pifa_process
 from Secondary_Program.Liushui import liushui_process
@@ -81,8 +80,8 @@ def main():
     for i in xinxi_xlsx_sheet1['分类名称'].unique():
         pifa_xlsx_sheet_filter = xinxi_xlsx_sheet1[xinxi_xlsx_sheet1['分类名称'] == i]
         # 创建子进程对象
-        pifa_subprocess = multiprocessing.Process(target=pifa_process,args=(pifa_xlsx_sheet_filter,pifa_xlsx_sheet1))
-        liushui_subprocess = multiprocessing.Process(target=liushui_process,args=(pifa_xlsx_sheet_filter,pifa_xlsx_sheet1,liushui_xlsx_sheet1))
+        pifa_subprocess = multiprocessing.Process(target=pifa_process,args=(pifa_xlsx_sheet_filter,pifa_xlsx_sheet1,i))
+        liushui_subprocess = multiprocessing.Process(target=liushui_process,args=(pifa_xlsx_sheet_filter,pifa_xlsx_sheet1,liushui_xlsx_sheet1,i))
         # 启动子进程
         pifa_subprocess.start()
         liushui_subprocess.start()
