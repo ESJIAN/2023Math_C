@@ -18,10 +18,10 @@ def liushui_process(filter_dataframe, pifa_xlsx_sheet1, liushui_sheet_dataframe,
 
         if temp_code in liushui_sheet_dataframe['单品编码'].values:  # 判断单品编码是否在流水表中
             temp_dataframe = liushui_sheet_dataframe[
-                liushui_sheet_dataframe['单品编码'] == temp_code]  # 筛选出单品编码为temp_code的所有数据行
+                liushui_sheet_dataframe['单品编码'] == temp_code]    # 筛选出单品编码为temp_code的所有数据行
             #print(temp_dataframe)                                                              # CHK：查看temp_dataframe
 
-            if os.path.exists(Storage_Path):  # 判断文件是否存在,存在则追加写入表单，不存在则创建xlsx文件并写入表单
+            if os.path.exists(Storage_Path):                        # 判断文件是否存在,存在则追加写入表单，不存在则创建xlsx文件并写入表单
                 with pd.ExcelWriter(Storage_Path, mode='a') as writer:
                     temp_dataframe.to_excel(writer, sheet_name=temp_name, index=False)
             else:
@@ -31,7 +31,7 @@ def liushui_process(filter_dataframe, pifa_xlsx_sheet1, liushui_sheet_dataframe,
         else:
             temp_dataframe = pifa_xlsx_sheet1[pifa_xlsx_sheet1['单品编码'] == temp_code]
             if os.path.exists(Storage_Path):
-                if i == 0:
+                if i == 0:                                          # Notice:这一步的判断得加入,要不然后面如果出现没有在流水表中的单品会造成文件覆写
                     with pd.ExcelWriter(Storage_Path) as writer:
                         temp_dataframe.to_excel(writer, sheet_name=temp_name + '(未)', index=False)
                 else:

@@ -50,7 +50,7 @@ def main():
     read_liushui_excel_subprocess.join()
     read_xinxi_excel_subprocess.join()
     print("Data Loading Finished")
-    # 保存返回的数据框
+    # 保存子进程返回的数据框
     pifa_xlsx_sheet1 = read_pifa_excel()
     liushui_xlsx_sheet1 = read_liushui_excel()
     xinxi_xlsx_sheet1 = read_xinxi_excel()
